@@ -1,0 +1,11 @@
+﻿@model Vidly.Models.Customer
+
+
+      
+            <tbody>
+                <tr>
+                    <td>@Html.ActionLink(Model.Name, "Edit", new { Id = Model.ID })</td>
+                    <td>@Model.MembershipType.Name</td>
+                </tr>
+            </tbody>
+      
