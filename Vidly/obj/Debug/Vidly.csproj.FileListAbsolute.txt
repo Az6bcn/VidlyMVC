@@ -78,3 +78,9 @@ C:\Users\odumosua\OneDrive - Verastar\Documents\asp.net_tutorials\Vidly\Vidly\ob
 C:\Users\odumosua\OneDrive - Verastar\Documents\asp.net_tutorials\Vidly\Vidly\obj\Debug\Vidly.Migrations.AddMoviesGenres.resources
 C:\Users\odumosua\OneDrive - Verastar\Documents\asp.net_tutorials\Vidly\Vidly\obj\Debug\Vidly.Migrations.PopulateMoviesGenresAfterSpeciyingFKInMoviesTable.resources
 C:\Users\odumosua\OneDrive - Verastar\Documents\asp.net_tutorials\Vidly\Vidly\obj\Debug\Vidly.Migrations.UpgradesInModelss.resources
+C:\Users\odumosua\OneDrive - Verastar\Documents\asp.net_tutorials\Vidly\Vidly\bin\System.Net.Http.Formatting.dll
+C:\Users\odumosua\OneDrive - Verastar\Documents\asp.net_tutorials\Vidly\Vidly\bin\System.Web.Http.dll
+C:\Users\odumosua\OneDrive - Verastar\Documents\asp.net_tutorials\Vidly\Vidly\bin\System.Web.Http.WebHost.dll
+C:\Users\odumosua\OneDrive - Verastar\Documents\asp.net_tutorials\Vidly\Vidly\bin\System.Net.Http.Formatting.xml
+C:\Users\odumosua\OneDrive - Verastar\Documents\asp.net_tutorials\Vidly\Vidly\bin\System.Web.Http.xml
+C:\Users\odumosua\OneDrive - Verastar\Documents\asp.net_tutorials\Vidly\Vidly\bin\System.Web.Http.WebHost.xml
