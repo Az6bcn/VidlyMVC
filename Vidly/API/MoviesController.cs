@@ -7,9 +7,11 @@ using System.Net.Http;
 using System.Web.Http;
 using Vidly.DTOs;
 using Vidly.Models;
+using System.Data.Entity;
 
 namespace Vidly.API
 {
+    [Authorize(Roles = RoleName.CanManagerMovies)]
     public class MoviesController : ApiController
     {
         private ApplicationDbContext _dbContext;
@@ -19,16 +21,18 @@ namespace Vidly.API
             _dbContext = new ApplicationDbContext();
         }
 
-
+        [AllowAnonymous]
         [Route("api/movies/GetMovies")]
         [HttpGet]
         public IEnumerable<MovieDTO> GetMovies()
         {
-            return _dbContext.Movies.ToList().Select(Mapper.Map<Movie, MovieDTO>);
+            var response = _dbContext.Movies.Include(x => x.Genre).ToList().Select(Mapper.Map<Movie, MovieDTO>);
+
+            return response;
 
         }
 
-
+        [AllowAnonymous]
         [Route("api/movies/GetMovie/{Id}")]
         [HttpGet]
         public IHttpActionResult GetMovieById(int Id)
@@ -97,14 +101,14 @@ namespace Vidly.API
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
             }
 
-            var customerInDB = _dbContext.Customers.Single(x => x.ID == Id);
+            var customerInDB = _dbContext.Movies.Single(x => x.Id == Id);
 
             if (customerInDB == null)
             {
                 throw new HttpResponseException(HttpStatusCode.NotFound);
             }
 
-            _dbContext.Customers.Remove(customerInDB);
+            _dbContext.Movies.Remove(customerInDB);
 
             _dbContext.SaveChanges();
         }

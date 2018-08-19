@@ -21,11 +21,20 @@ namespace Vidly
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
+                      "~/Scripts/bootbox.js",
                       "~/Scripts/respond.js"));
+
+
+            // bundle for jquery Datatable, and  add it to _layout.cshtml  @Scripts.Render()
+            bundles.Add(new StyleBundle("~/bundles/datatables").Include(
+                      "~/Scripts/datatables/jquery.dataTables.js",
+                      "~/Scripts/datatables/dataTables.bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap-lumen.css",
+                      "~/Content/datatables/css/datatables.bootstrap.css",
                       "~/Content/site.css"));
+
         }
     }
 }

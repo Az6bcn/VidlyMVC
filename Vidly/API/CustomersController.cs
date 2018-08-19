@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
@@ -23,8 +24,11 @@ namespace Vidly.API
         // GET /api/Customers
         public IEnumerable<CustomerDTO> GetCustomers()
         {
-            return _dbContext.Customers.ToList().Select(Mapper.Map<Customer, CustomerDTO>);
+            var response = _dbContext.Customers
+                        .Include(x => x.MembershipType)
+                        .ToList().Select(Mapper.Map<Customer, CustomerDTO>);
 
+            return response;
         }
 
 

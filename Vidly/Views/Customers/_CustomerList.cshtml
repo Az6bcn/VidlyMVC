@@ -1,11 +1,15 @@
-﻿@model Vidly.Models.Customer
+﻿@*@model Vidly.Models.Customer
 
 
       
-            <tbody>
-                <tr>
+           
+                <tr id="rowToDelete">
                     <td>@Html.ActionLink(Model.Name, "Edit", new { Id = Model.ID })</td>
                     <td>@Model.MembershipType.Name</td>
-                </tr>
-            </tbody>
+                    <td >
+                        @*Store the Id in custom attribute*@
+                        <button data-customer-id =@Model.ID  class="btn-link js-delete">Delete</button>
+                    </td>
+                </tr>*@
+          
       

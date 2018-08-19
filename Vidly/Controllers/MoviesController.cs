@@ -11,6 +11,7 @@ using System.Data.Entity.Validation;
 
 namespace Vidly.Controllers
 {
+    [Authorize(Roles = RoleName.CanManagerMovies)]
     public class MoviesController : Controller
     {
 
@@ -24,15 +25,21 @@ namespace Vidly.Controllers
 
 
 
-
+        [AllowAnonymous]
         [Route("movies")]
         public ActionResult GetMovies()
         {
             var moviesList = _context.Movies.Include(m => m.Genre).ToList();
-            return View("Movies", moviesList);
+
+            if (User.IsInRole(RoleName.CanManagerMovies))
+            {
+                return View("Movies", moviesList);
+            }
+
+            return View("ReadOnlyList", moviesList);
         }
 
-
+        [AllowAnonymous]
         public ActionResult MovieDetails(int Id)
         {
             var movieDetail = _context.Movies.Include(m => m.Genre).FirstOrDefault(x => x.Id == Id);

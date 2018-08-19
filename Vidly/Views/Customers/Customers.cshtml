@@ -4,6 +4,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@*JS Model and Controller*@
+<script src="~/Scripts/Model/CustomerModel.js"></script>
+<script src="~/Scripts/Controller/CustomerController.js"></script>
+
+
 <h2>Customers</h2>
 
 <div class="panel panel-default">
@@ -15,20 +20,29 @@
         }
 
         @if (Model.Count() > 0) { 
-        <table class="table table-striped table-hover ">
+        <table id="customers" class="table table-striped table-hover ">
             <thead>
                 <tr>
                     <th>Customer</th>
                     <th>Discount Rate</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
-           
-            @foreach (var item in Model)
-            {
+            <tbody>
+                @*Only make the table skeleton for dataTables*@
 
-                @Html.Partial("_CustomerList", item);
-            }
+                @*@foreach (var item in Model)
+                {
+
+                    @Html.Partial("_CustomerList", item);
+                }*@
+            </tbody>
         </table> 
         }
 </div>
 </div>
+
+
+
+@*for JQuery*@
+@Html.Hidden("hfGetSelectedProfileIDAccounts", Url.Action("GetSeletedProfileIDAcounts", "ProfileSearch"))

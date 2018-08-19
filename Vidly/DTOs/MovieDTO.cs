@@ -25,6 +25,6 @@ namespace Vidly.DTOs
 
         //specific GenreFK
         [Required]
-        public int GenreId { get; set; }
+        public GenreDTO Genre { get; set; }
     }
 }
