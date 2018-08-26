@@ -22,13 +22,19 @@ namespace Vidly.API
 
 
         // GET /api/Customers
-        public IEnumerable<CustomerDTO> GetCustomers()
+        public IEnumerable<CustomerDTO> GetCustomers(string query = null)
         {
-            var response = _dbContext.Customers
-                        .Include(x => x.MembershipType)
+            var customersQuery = _dbContext.Customers
+                        .Include(x => x.MembershipType);
+
+                        
+            if (!string.IsNullOrWhiteSpace(query))
+                customersQuery = customersQuery.Where(x => x.Name.Contains(query));
+
+            var CustomerDtos = customersQuery.ToList()
                         .ToList().Select(Mapper.Map<Customer, CustomerDTO>);
 
-            return response;
+            return CustomerDtos;
         }
 
 

@@ -13,6 +13,7 @@ namespace Vidly.Models
         public DbSet<Movie> Movies { get; set; }
         public DbSet<MemberShipType> MembershipTypes {get; set;}
         public DbSet<MovieGenre> Genres { get; set; }
+        public DbSet<Rental> Rentals { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection")

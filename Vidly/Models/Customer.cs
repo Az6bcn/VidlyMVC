@@ -18,7 +18,7 @@ namespace Vidly.Models
 
 
         public MemberShipType MembershipType { get; set; } // Navigation Property
-        /* I specify my FK: prevents EF from createing FK property for me automatically (which will be MembershipType_Id), Also will be able to add the MembershipTypeID when creating a new customer. With the navigation property only was in possible. */
+        /* I specify my FK: prevents EF from createing FK property for me automatically (which will be MembershipType_Id), Also I will be able to add the MembershipTypeID when creating a new customer. With the navigation property only was impossible. */
         [Display(Name="Membership Type")]
         public int MembershipTypeId { get; set; }
 

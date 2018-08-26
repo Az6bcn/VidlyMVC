@@ -30,9 +30,19 @@ namespace Vidly
                       "~/Scripts/datatables/jquery.dataTables.js",
                       "~/Scripts/datatables/dataTables.bootstrap.js"));
 
+            // bundle for twitter.typeahead, and  add it to _layout.cshtml  @Scripts.Render()
+            bundles.Add(new StyleBundle("~/bundles/typeahead").Include(
+                      "~/Scripts/typeahead.bundle.js"));
+
+            // bundle for toastr, and  add it to _layout.cshtml  @Scripts.Render()
+            bundles.Add(new StyleBundle("~/bundles/toastr").Include(
+                      "~/Scripts/toastr.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap-lumen.css",
                       "~/Content/datatables/css/datatables.bootstrap.css",
+                      "~/Content/typeahead.css",
+                      "~/Content/toastr.css",
                       "~/Content/site.css"));
 
         }
